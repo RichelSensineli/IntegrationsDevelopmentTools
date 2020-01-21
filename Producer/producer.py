@@ -22,7 +22,7 @@ def handleFileUpload():
         if arquivo.filename != '':            
             arquivo.save(os.path.join('./', arquivo.filename))
 
-            f = open(arquivo.filename, 'r')
+            f = open(arquivo.filename, 'r', encoding="utf8",  errors='ignore')
             #reader = csv.DictReader(f, fieldnames)
             reader = csv.DictReader(f, fieldnames, delimiter=';', quoting=csv.QUOTE_ALL)
 
@@ -38,7 +38,7 @@ def handleFileUpload():
                 future = producer.send('csv_topic', msg)    
                 future.get(timeout=10)
                 # Imprimir a mensagem no console
-                print(msg)
+                # print(msg)
 
     return redirect(url_for('fileFrontPage'))
 
