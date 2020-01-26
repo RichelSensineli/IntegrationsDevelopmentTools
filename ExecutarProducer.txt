@@ -1,0 +1,32 @@
+## Executa com arquivo de testes. Quebra em arquivos com 3 registros cada e processa 3 partições ##
+http://localhost:5000/iniciar?arquivo=Teste.csv&&qtd_por_particao=3&&qtd_particoes=3
+
+## Executa com arquivo original. Quebra em arquivos com 400000 registros cada e processa 5 partições ##
+http://localhost:5000/iniciar?arquivo=201901_BolsaFamilia_Pagamentos.csv&&qtd_por_particao=400000&&qtd_particoes=5
+
+## Executa com arquivo original. Quebra em arquivos com 100000 registros cada e processa 1388 partições ##
+http://localhost:5000/iniciar?arquivo=201901_BolsaFamilia_Pagamentos.csv&&qtd_por_particao=10000&&qtd_particoes=1388
+
+
+
+
+
+
+Resultados:
+
+producer_1  | Foi! Total de mensagens enviadas para a fila: 2500000. Início: 01/26/2020, 06:59:49. Fim: 01/26/2020, 07:01:56. Tempo total: 0:02:07.538635
+producer_1  | 172.26.0.1 - - [26/Jan/2020 07:01:56] "GET /iniciar?arquivo=201901_BolsaFamilia_Pagamentos.csv&&qtd_por_particao=500000&&qtd_particoes=5 HTTP/1.1" 200 - 
+
+
+producer_1  | Foi! Total de mensagens enviadas para a fila: 3000000. Início: 01/26/2020, 07:02:48. Fim: 01/26/2020, 07:06:38. Tempo total: 0:03:49.641071
+producer_1  | 172.26.0.1 - - [26/Jan/2020 07:06:38] "GET /iniciar?arquivo=201901_BolsaFamilia_Pagamentos.csv&&qtd_por_particao=100000&&qtd_particoes=30 HTTP/1.1" 200 -
+
+
+producer_1  | Foi! Total de mensagens enviadas para a fila: 3000000. Início: 01/26/2020, 07:17:18. Fim: 01/26/2020, 07:22:05. Tempo total: 0:04:47.299257
+producer_1  | 172.26.0.1 - - [26/Jan/2020 07:22:05] "GET /iniciar?arquivo=201901_BolsaFamilia_Pagamentos.csv&&qtd_por_particao=50000&&qtd_particoes=60 HTTP/1.1" 200 - 
+
+
+producer_1  | Foi! Total de mensagens enviadas para a fila: 3000000. Início: 01/26/2020, 07:24:52. Fim: 01/26/2020, 07:27:17. Tempo total: 0:02:24.953970
+producer_1  | 172.26.0.1 - - [26/Jan/2020 07:27:17] "GET /iniciar?arquivo=201901_BolsaFamilia_Pagamentos.csv&&qtd_por_particao=10000&&qtd_particoes=300 HTTP/1.1" 200 -
+
+

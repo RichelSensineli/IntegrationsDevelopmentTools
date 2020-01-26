@@ -1,5 +1,5 @@
-FROM python:3.7-alpine
+FROM python:3.6
 WORKDIR /code
 COPY . .
 RUN pip3 install kafka-python Flask
-CMD ["python", "producer.py"]
+CMD ["python", "producer2.py"]
