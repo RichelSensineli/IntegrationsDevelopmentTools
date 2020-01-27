@@ -30,10 +30,26 @@ services:
     build: ./Producer
     ports:
       - "5000:5000"
-    depends_on: 
+    depends_on:
       - kafka
     networks:
       - producer_network
     #restart: always
     volumes:
       - ./:/csv
+
+  consumer01:
+    restart: always
+    build: ./consumer01
+    working_dir: /consumer01
+    ports:
+    - "8080:8080"
+    depends_on:
+      - kafka
+    networks:
+    - consumer_network
+    environment:
+      SPRING_KAFKA_CONSUMER_BOOTSTRAP_SERVERS: kafka:9092
+      SPRING_KAFKA_CONSUMER_GROUP_ID: groupid
+      CSV_TOPIC: csv_topic
+      SERVER_PORT: 8080      
