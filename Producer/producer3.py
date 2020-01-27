@@ -13,7 +13,7 @@ qtdTotMsg = 0
 
 def enviar_mensagem(producer2, filehandler, qtdLinhas):
     
-    reader = csv.DictReader(f, fieldnames, delimiter=';', quoting=csv.QUOTE_ALL)
+    reader = csv.DictReader(filehandler, fieldnames, delimiter=';', quoting=csv.QUOTE_ALL)
    
     global qtdTotMsg
 
