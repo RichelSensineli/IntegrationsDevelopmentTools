@@ -3,7 +3,9 @@ package br.com.fiap.consumer01.controller;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
+import br.com.fiap.consumer01.model.Report;
 import br.com.fiap.consumer01.model.Summarization;
 import br.com.fiap.consumer01.service.SummarizationsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,7 @@ public class SummarizationController {
 
 	private List<Summarization> summarizations = new ArrayList<Summarization>();
 	private BigDecimal total;
+	private Map< String , Report> report;
 
 	@Autowired
 	private SummarizationsService summarizationsService;
@@ -27,13 +30,7 @@ public class SummarizationController {
 		summarizations = summarizationsService.getSummarizationList();
 
 		for (Summarization summarization: summarizations) {
-
-			if(summarization.getVALOR_PARCELA().contains("VALOR")){
-				System.out.println("IGNORADO >>>>> " + summarization.toString());
-			} else {
-				contabilizaRegistroPorEstado(summarization);
-			}
-
+			contabilizaRegistroPorEstado(summarization);
 		}
 
 		System.out.println(total);
@@ -42,12 +39,25 @@ public class SummarizationController {
     }
 
 	private void contabilizaRegistroPorEstado(Summarization summarization) {
-		BigDecimal val = null;
+		summarizations.forEach(summa -> {
+			summarizeIt(summa);
+		});
+	}
 
-		switch (summarization.getUF()){
-			case "BA":
-				val = new BigDecimal(summarization.getVALOR_PARCELA());
-				total = total.add(val);
+	private void summarizeIt(Summarization summarization) {
+		if(report.containsKey(summarization.getUF())){
+			BigDecimal totalParcela = report.get(summarization.getUF()).getTotalParcelas();
+			int totalBeneficiarios = report.get(summarization.getUF()).getQuantidadeBeneficiarios();
+
+			report.put(summarization.getUF(), new Report(
+												summarization.getUF(),
+												totalParcela.add(new BigDecimal(summarization.getVALOR_PARCELA())),
+												totalBeneficiarios + 1));
+		} else {
+			report.put(summarization.getUF(), new Report(
+					                          	summarization.getUF(),
+												new BigDecimal(summarization.getVALOR_PARCELA()),
+							1));
 		}
 	}
 }
