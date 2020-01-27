@@ -4,7 +4,7 @@ import os
 import sys
 from datetime import datetime
 from flask import Flask, request
-from kafka import SimpleProducer
+from kafka import SimpleProducer, KafkaClient
 
 app = Flask(__name__)
 
