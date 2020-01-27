@@ -30,7 +30,7 @@ def enviar_mensagem(producer2, filehandler, qtdLinhas):
         #    ts3 = datetime.now()
         #    print(str(qtdMsg) + ' - ' + ts3.strftime("%m/%d/%Y, %H:%M:%S"), file=sys.stderr)
         qtdTotMsg += 1
-        if qtdTotMsg == qtdLinhas
+        if qtdTotMsg == qtdLinhas:
             break
 
 @app.route("/iniciar")
