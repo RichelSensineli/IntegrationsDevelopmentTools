@@ -24,6 +24,7 @@ public class SummarizationsService {
 	@KafkaListener(topics = "${csv.topic}", groupId = "spring.kafka.consumer.group-id")
 	public void listen(String message) {
         try {
+            System.out.println(">>>>   " + message);
             JsonObject jsonObject = new JsonParser().parse(message).getAsJsonObject();
 
             Gson gson=new Gson();
