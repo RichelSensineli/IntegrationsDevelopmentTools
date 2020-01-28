@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class SummarizationController {
 
 	private List<Summarization> summarizations = new ArrayList<Summarization>();
-	private BigDecimal total;
 	private Map< String , Report> report;
 
 	@Autowired
@@ -34,7 +33,7 @@ public class SummarizationController {
 			contabilizaRegistroPorEstado(summarization);
 		}
 
-		System.out.println(total);
+		System.out.println(report.toString());
 
         return summarizations;
     }
