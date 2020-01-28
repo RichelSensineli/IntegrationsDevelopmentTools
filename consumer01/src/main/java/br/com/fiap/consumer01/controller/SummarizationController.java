@@ -29,8 +29,10 @@ public class SummarizationController {
 		summarizations = summarizationsService.getSummarizationList();
 
 		for (Summarization summarization: summarizations) {
-			System.out.println(summarization.toString());
-			contabilizaRegistroPorEstado(summarization);
+			if(!summarization.getVALOR_PARCELA().contains("VALOR")) {
+				System.out.println(summarization.toString());
+				contabilizaRegistroPorEstado(summarization);
+			}
 		}
 
 		System.out.println(report.toString());
