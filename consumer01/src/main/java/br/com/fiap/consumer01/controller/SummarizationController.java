@@ -30,7 +30,7 @@ public class SummarizationController {
 		summarizations = summarizationsService.getSummarizationList();
 
 		for (Summarization summarization: summarizations) {
-			contabilizaRegistroPorEstado(summarization);
+			System.out.println(summarization.toString());
 		}
 
 		System.out.println(total);

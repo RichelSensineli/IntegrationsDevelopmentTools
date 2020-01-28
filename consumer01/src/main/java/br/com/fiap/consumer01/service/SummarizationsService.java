@@ -20,13 +20,9 @@ public class SummarizationsService {
 	
 	private Summarization summarization;
 	private static List<Summarization> summarizationList = new ArrayList<Summarization>();
-    private static List<Summarization> summarizationListAux = new ArrayList<Summarization>();
-
 
 	@KafkaListener(topics = "${csv.topic}", groupId = "spring.kafka.consumer.group-id")
 	public void listen(String message) {
-        System.out.println("Received message: " + message);
-
         try {
             JsonObject jsonObject = new JsonParser().parse(message).getAsJsonObject();
 
@@ -34,7 +30,6 @@ public class SummarizationsService {
             Summarization summarization = gson.fromJson(jsonObject,Summarization.class);
 
             summarizationList.add(summarization);
-            System.out.println(">>> #1 Quantidade de itens na lista: "+ summarizationList.size());
         }
         catch (Exception e){
             e.printStackTrace();
