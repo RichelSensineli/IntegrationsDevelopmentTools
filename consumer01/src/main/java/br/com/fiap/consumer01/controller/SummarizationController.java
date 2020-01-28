@@ -41,9 +41,11 @@ public class SummarizationController {
     }
 
 	private void contabilizaRegistroPorEstado(Summarization summarization) {
-		summarizations.forEach(summa -> {
-			summarizeIt(summa);
-		});
+		System.out.println(summarization.toString());
+
+//		summarizations.forEach(summa -> {
+//			summarizeIt(summa);
+//		});
 	}
 
 	private void summarizeIt(Summarization summarization) {
