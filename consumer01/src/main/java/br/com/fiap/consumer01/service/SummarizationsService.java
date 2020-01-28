@@ -25,6 +25,7 @@ public class SummarizationsService {
 	public void listen(String message) {
         try {
             System.out.println(">>>>   " + message);
+
             JsonObject jsonObject = new JsonParser().parse(message).getAsJsonObject();
 
             Gson gson=new Gson();
@@ -38,10 +39,12 @@ public class SummarizationsService {
     }
 
     public List<Summarization> getSummarizationList() {
-        return summarizationList.stream()
-                .filter(x -> !x.getVALOR_PARCELA().contains("VALOR"))
-                .sorted(Comparator.comparing(Summarization::getUF))
-                .collect(Collectors.toList());
+	    return summarizationList;
+
+//        return summarizationList.stream()
+//                .filter(x -> !x.getVALOR_PARCELA().contains("VALOR"))
+//                .sorted(Comparator.comparing(Summarization::getUF))
+//                .collect(Collectors.toList());
     }
 
     public void clearSummarizationList() {
