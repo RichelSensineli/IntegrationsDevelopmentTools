@@ -47,6 +47,6 @@ public class Report {
 
     @Override
     public String toString() {
-        return "UF:'" + UF + '\'' + ", Total Parcelas: " + totalParcelas + ", Quantidade Beneficiarios: " + quantidadeBeneficiarios;
+        return "ESTADO:" + UF + "| VALOR TOTAL: " + totalParcelas + "| QUANTIDADE BENEFICIARIOS: " + quantidadeBeneficiarios;
     }
 }
