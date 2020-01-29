@@ -9,6 +9,12 @@ public class Report {
     private BigDecimal totalParcelas;
     private int quantidadeBeneficiarios;
 
+    public Report(String UF) {
+        this.UF = UF;
+        this.totalParcelas = BigDecimal.ZERO;
+        this.quantidadeBeneficiarios = 0;
+    }
+
     public Report(String UF, BigDecimal totalParcelas, int quantidadeBeneficiarios) {
         this.UF = UF;
         this.totalParcelas = totalParcelas;
@@ -37,5 +43,10 @@ public class Report {
 
     public void setQuantidadeBeneficiarios(int quantidadeBeneficiarios) {
         this.quantidadeBeneficiarios = quantidadeBeneficiarios;
+    }
+
+    @Override
+    public String toString() {
+        return "UF:'" + UF + '\'' + ", Total Parcelas: " + totalParcelas + ", Quantidade Beneficiarios: " + quantidadeBeneficiarios;
     }
 }

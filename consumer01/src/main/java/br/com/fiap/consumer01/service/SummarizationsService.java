@@ -23,6 +23,7 @@ public class SummarizationsService {
 
 	@KafkaListener(topics = "${csv.topic}", groupId = "spring.kafka.consumer.group-id")
 	public void listen(String message) {
+
         try {
             System.out.println(">>>>   " + message);
 
@@ -40,11 +41,6 @@ public class SummarizationsService {
 
     public List<Summarization> getSummarizationList() {
 	    return summarizationList;
-
-//        return summarizationList.stream()
-//                .filter(x -> !x.getVALOR_PARCELA().contains("VALOR"))
-//                .sorted(Comparator.comparing(Summarization::getUF))
-//                .collect(Collectors.toList());
     }
 
     public void clearSummarizationList() {
