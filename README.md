@@ -46,4 +46,4 @@ Contribuições são bem-vindas, fiquem à vontade 😉
 
 Faça o fork do projeto; crie uma branch; dê o commit; faça o push e o pull request. 
 
-Não esqueçam de garantir o correto funcionamento da aplicação dentro do seu objetivo. 
+Não esqueçam de garantir o correto funcionamento da aplicação conforme seu objetivo. 
