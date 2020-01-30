@@ -5,7 +5,7 @@ Três consumidores em Java que efetuam as seguintes análises:
 2) Mostrar dados do beneficiário que tenha a maior parcela até o momento;
 3) Quantidade de registros lidos do Topic.
 
-**** Imagem da solução – draw.io ****
+![bigpicture](https://user-images.githubusercontent.com/50683744/73409722-db70d800-42de-11ea-9ba7-0bec6975a71d.PNG)
 
 
 ## Instalação
