@@ -5,7 +5,7 @@ Três consumidores em Java que efetuam as seguintes análises:
 2) Mostrar dados do beneficiário que tenha a maior parcela até o momento;
 3) Quantidade de registros lidos do Topic.
 
-![bigpicture1](https://user-images.githubusercontent.com/50683744/73409957-8aadaf00-42df-11ea-98b4-c9f6e6f4ae0c.png)
+![G1 - Microserviços Trab2](https://user-images.githubusercontent.com/50683744/73410249-7322f600-42e0-11ea-8bf5-475e4159a7b9.jpg)
 
 ## Instalação
 OS X & Linux:
