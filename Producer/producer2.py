@@ -11,7 +11,7 @@ app = Flask(__name__)
 fieldnames = ("MES_REFERENCIA", "MES_COMPETENCIA", "UF", "CODIGO_MUNICIPIO_SIAFI", "NOME_MUNICIPIO", "NIS_FAVORECIDO", "NOME_FAVORECIDO", "VALOR_PARCELA")
 qtdTotMsg = 0
 
-def split(filehandler, row_limit, delimiter=';', 
+def split(filehandler, row_limit, delimiter=';',
           output_name_template='output_%s.csv', output_path='.', keep_headers=False):
     reader = csv.reader(filehandler, delimiter=delimiter)
     current_piece = 1
@@ -43,7 +43,7 @@ def enviar_mensagem(current_piece, producer2, output_name_template='output_%s.cs
         output_name_template % current_piece
     )
     f = open(current_out_path, 'r', encoding="utf8",  errors='ignore')
-    
+
     #f = open('./output_1.csv', 'r', encoding="utf8",  errors='ignore')
 
     reader = csv.DictReader(f, fieldnames, delimiter=';', quoting=csv.QUOTE_ALL)
@@ -56,12 +56,12 @@ def enviar_mensagem(current_piece, producer2, output_name_template='output_%s.cs
 
     for row in reader:
         qtdMsg += 1
-        # Parse CSV para JSON  
+        # Parse CSV para JSON
         out = json.dumps(row)
         # Converter em bytes
         msg = out.encode()
         # Enviar mensagem para o topico Kafka
-        #future = producer.send('csv_topic', msg)    
+        #future = producer.send('csv_topic', msg)
         #future.get(timeout=10)
         producer2.send_messages('csv_topic', msg)
         # Imprimir a mensagem no console
@@ -104,7 +104,7 @@ def iniciar():
     split(f, qtdPorParticao)
 
     print('Fim do split. Enviando mensagens...', file=sys.stderr)
-    
+
     i = 1
     while i <= qtdParticoes:
         enviar_mensagem(i, producer2)
@@ -112,7 +112,7 @@ def iniciar():
         i += 1
 
     fimTotal = datetime.now()
-    tempoTotal = fimTotal - iniTotal 
+    tempoTotal = fimTotal - iniTotal
     strMensagem = 'Foi! Total de mensagens enviadas para a fila: ' + str(qtdTotMsg) + '. Início: ' + iniTotal.strftime("%m/%d/%Y, %H:%M:%S") + '. Fim: ' + fimTotal.strftime("%m/%d/%Y, %H:%M:%S") + '. Tempo total: ' + str(tempoTotal)
     print(strMensagem, file=sys.stderr)
 
@@ -120,9 +120,4 @@ def iniciar():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)     
-
-
-
-
-
+    app.run(host='0.0.0.0', port=5000)
