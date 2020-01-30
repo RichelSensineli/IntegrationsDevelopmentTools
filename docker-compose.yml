@@ -52,4 +52,36 @@ services:
       SPRING_KAFKA_CONSUMER_BOOTSTRAP_SERVERS: kafka:9092
       SPRING_KAFKA_CONSUMER_GROUP_ID: groupid
       CSV_TOPIC: csv_topic
-      SERVER_PORT: 8080      
+      SERVER_PORT: 8080     
+
+  consumer02:
+    restart: always
+    build: ./consumer02
+    working_dir: /consumer02
+    ports:
+    - "8081:8081"
+    depends_on:
+      - kafka
+    networks:
+    - consumer_network
+    environment:
+      SPRING_KAFKA_CONSUMER_BOOTSTRAP_SERVERS: kafka:9092
+      SPRING_KAFKA_CONSUMER_GROUP_ID: groupid
+      CSV_TOPIC: csv_topic
+      SERVER_PORT: 8081     
+      
+  consumer03:
+    restart: always
+    build: ./consumer03
+    working_dir: /consumer03
+    ports:
+    - "8082:8082"
+    depends_on:
+      - kafka
+    networks:
+    - consumer_network
+    environment:
+      SPRING_KAFKA_CONSUMER_BOOTSTRAP_SERVERS: kafka:9092
+      SPRING_KAFKA_CONSUMER_GROUP_ID: groupid
+      CSV_TOPIC: csv_topic
+      SERVER_PORT: 8082           
