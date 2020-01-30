@@ -30,9 +30,11 @@ Onde:
 Exemplos de utilização:
 
 *Executa com arquivo de testes. Sem limite de linhas (processa o arquivo inteiro)*
+
 http://localhost:5000/iniciar?arquivo=Teste.csv
 
 *Executa com arquivo original. Limita em 2000 linhas*
+
 http://localhost:5000/iniciar?arquivo=201901_BolsaFamilia_Pagamentos.csv&&linhas=2000
 
 #### Consumer
@@ -40,13 +42,17 @@ http://localhost:5000/iniciar?arquivo=201901_BolsaFamilia_Pagamentos.csv&&linhas
 Para consumir registros no tópico, deve-se acessar os endpoints criados pelas aplicações Consumer:
 
 *Dados dos beneficiários por UF, somando as parcelas*
+
 http://localhost:8080/report
 
 *Dados do beneficiário com a maior parcela*
+
 http://localhost:8081/comparator
 
 *Quantidade de registros lidos no tópico*
+
 http://localhost:8082/stats
+
 
 O resultado deverá ser mostrado no console da aplicação no docker.
 
