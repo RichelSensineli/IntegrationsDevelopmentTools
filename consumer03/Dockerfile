@@ -32,7 +32,7 @@ FROM openjdk:8-jre-alpine
 #COPY --from=build ${DEPENDENCY}/BOOT-INF/lib /app/lib
 #COPY --from=build ${DEPENDENCY}/META-INF /app/META-INF
 #COPY --from=build ${DEPENDENCY}/BOOT-INF/classes /app
-COPY --from=build /app/target/consumer02-0.0.1-SNAPSHOT.jar /app/target/consumer02.jar
+COPY --from=build /app/target/consumer03-0.0.1-SNAPSHOT.jar /app/target/consumer03.jar
 
 # Runs application
-ENTRYPOINT [ "java", "-jar", "/app/target/consumer02.jar"]
+ENTRYPOINT [ "java", "-jar", "/app/target/consumer03.jar"]
