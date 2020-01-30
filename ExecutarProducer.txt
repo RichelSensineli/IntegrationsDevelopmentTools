@@ -1,5 +1,0 @@
-## Executa com arquivo de testes. Sem limite de linhas (processa o arquivo inteiro) ##
-http://localhost:5000/iniciar?arquivo=Teste.csv
-
-## Executa com arquivo original. Limita em 2000 linhas ##
-http://localhost:5000/iniciar?arquivo=201901_BolsaFamilia_Pagamentos.csv&&linhas=2000
