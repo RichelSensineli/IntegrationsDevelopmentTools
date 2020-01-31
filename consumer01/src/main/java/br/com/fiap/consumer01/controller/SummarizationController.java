@@ -40,38 +40,6 @@ public class SummarizationController {
 		printReport();
     }
 
-	@GetMapping("/comparator")
-	public void getComparations() {
-		BigDecimal higher = BigDecimal.ZERO;
-
-		System.out.println("******************************************************");
-		System.out.println("*       RELATORIO COM MAIOR BENEFICIARIO             *");
-		System.out.println("******************************************************");
-
-		for (Summarization summarization: summarizations) {
-			BigDecimal value = new BigDecimal(summarization.getVALOR_PARCELA().replace(",", "."));
-			if (value.compareTo(higher) == 1) {
-				System.out.println("NIS: " + summarization.getNIS_FAVORECIDO()
-								+ " | NOME: " + summarization.getNOME_FAVORECIDO()
-								+ " | VALOR: " + summarization.getVALOR_PARCELA().replace(",", ".")
-								+ " | MUNICIPIO: " + summarization.getCODIGO_MUNICIPIO_SIAFI()
-								+ " | UF: " + summarization.getUF());
-				higher = value;
-			}
-		}
-
-		System.out.println("******************************************************");
-	}
-
-	@GetMapping("/stats")
-	public void getStats(){
-		System.out.println("******************************************************");
-		System.out.println("*       RELATORIO COM TOTAIS LIDOS DO TOPICO         *");
-		System.out.println("******************************************************");
-		System.out.println(summarizationsService.getReadMessagesCount());
-		System.out.println("******************************************************");
-	}
-
 	private void printReport() {
 		System.out.println("******************************************************");
 		System.out.println("*            RELATORIO COM TOTAIS POR UF             *");

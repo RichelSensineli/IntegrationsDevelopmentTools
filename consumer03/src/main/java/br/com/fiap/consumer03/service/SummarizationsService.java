@@ -18,7 +18,7 @@ public class SummarizationsService {
 	private static List<Summarization> summarizationList = new ArrayList<Summarization>();
 	private static Integer readMessagesCount = 0;
 
-	@KafkaListener(topics = "${csv.topic}", groupId = "spring.kafka.consumer.group-id")
+	@KafkaListener(topics = "${csv.topic}", groupId = "${spring.kafka.consumer.group-id}")
 	public void listen(String message) {
 
         readMessagesCount++;
