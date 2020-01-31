@@ -57,8 +57,19 @@ http://localhost:8082/stats
 O resultado deverá ser mostrado no console da aplicação no docker.
 
 Exemplo da demonstração dos resultados:
-Consumer 01: Relatório com o totais de beneficiários e valores por UF:
+
+#### Consumer 01: 
+- Relatório com o totais de beneficiários e valores por UF:
 ![Consumer 01](https://user-images.githubusercontent.com/2822029/73510644-9a052900-43c1-11ea-8de8-1be3b0121fc5.png)
+
+#### Consumer 02: 
+- Relatório com os dados do beneficiário com maior valor de parcela até o momento:
+![Consumer 02](https://user-images.githubusercontent.com/2822029/73510786-29124100-43c2-11ea-89c0-0894b0b25b90.png)
+
+#### Consumer 03: 
+- Relatório com o total de mensagens lidas do tópico:
+![Consumer 03](https://user-images.githubusercontent.com/2822029/73510806-3af3e400-43c2-11ea-9770-c98d9a73e7d2.png)
+
 
 ## Configuração para Desenvolvimento
 
