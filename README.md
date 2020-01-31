@@ -57,8 +57,8 @@ http://localhost:8082/stats
 O resultado deverá ser mostrado no console da aplicação no docker.
 
 Exemplo da demonstração dos resultados:
-
-%%%% PRINT DOS RESULTADOS %%%%%
+Consumer 01: Relatório com o totais de beneficiários e valores por UF:
+![Consumer 01](https://user-images.githubusercontent.com/2822029/73510644-9a052900-43c1-11ea-8de8-1be3b0121fc5.png)
 
 ## Configuração para Desenvolvimento
 
