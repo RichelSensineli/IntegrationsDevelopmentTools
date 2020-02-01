@@ -71,17 +71,6 @@ Exemplo da demonstração dos resultados:
 ![Consumer 03](https://user-images.githubusercontent.com/2822029/73510806-3af3e400-43c2-11ea-9770-c98d9a73e7d2.png)
 
 
-## Configuração para Desenvolvimento
-
-%%%%%%%%%%%%%%%%% exemplo %%%%%%%%%%%%%%%%%%%%%%%%%
-
-Descreva como instalar todas as dependências para desenvolvimento e como rodar um test-suite automatizado de algum tipo. Se necessário, faça isso para múltiplas plataformas.
-
-make install
-npm test
-
-%%%%%%%%%%%%%%%%% exemplo %%%%%%%%%%%%%%%%%%%%%%%%%
-
 ## Histórico de lançamentos
 0.0.1 - Versão inicial atendendo os requisitos do trabalho
 
